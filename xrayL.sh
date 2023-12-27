@@ -1,6 +1,6 @@
 DEFAULT_START_PORT=20000                         #默认起始端口
-DEFAULT_SOCKS_USERNAME="userb"                   #默认socks账号
-DEFAULT_SOCKS_PASSWORD="passwordb"               #默认socks密码
+DEFAULT_SOCKS_USERNAME=""                   #默认socks账号
+DEFAULT_SOCKS_PASSWORD=""               #默认socks密码
 DEFAULT_WS_PATH="/ws"                            #默认ws路径
 DEFAULT_UUID=$(cat /proc/sys/kernel/random/uuid) #默认随机UUID
 
@@ -62,7 +62,7 @@ config_xray() {
 		config_content+="tag = \"tag_$((i + 1))\"\n"
 		config_content+="[inbounds.settings]\n"
 		if [ "$config_type" == "socks" ]; then
-			config_content+="auth = \"password\"\n"
+			config_content+="auth = \"noauth\"\n"
 			config_content+="udp = true\n"
 			config_content+="ip = \"${IP_ADDRESSES[i]}\"\n"
 			config_content+="[[inbounds.settings.accounts]]\n"
